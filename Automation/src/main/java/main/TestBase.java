@@ -23,17 +23,17 @@ public class TestBase  {
 	public WebDriver InstantiateDriver() throws IOException
 	{
 		p=new Properties();
-	FileInputStream fis=new FileInputStream("C:\\Users\\hp\\Desktop\\Sathya\\Sathya\\TechAssessmentMaven\\src\\main\\java\\resources\\Inputs.properties");
+	FileInputStream fis=new FileInputStream(".\\src\\main\\java\\resources\\Inputs.properties");
 	p.load(fis);
 	browser=p.getProperty("Browser");
 	if (browser.equalsIgnoreCase("Chrome"))
 	{
-		System.setProperty("webdriver.chromedriver.driver","C:\\Users\\hp\\Desktop\\Sathya\\Sathya\\TechAssessmentMaven\\chromedriver.exe");
+		System.setProperty("webdriver.chromedriver.driver",".\\chromedriver.exe");
 		driver=new ChromeDriver();	
 	}
 	else if(browser.equalsIgnoreCase("IE"))
 	{
-		System.setProperty("webdriver.internetexplorerdriver.driver","C:\\Users\\hp\\Desktop\\Sathya\\Sathya\\TechAssessmentMaven\\IEDriverServerxe");
+		System.setProperty("webdriver.internetexplorerdriver.driver",".\\IEDriverServerxe");
 		driver=new InternetExplorerDriver();	
 	}
 	else if(browser.equalsIgnoreCase("Firefox"))
@@ -50,12 +50,12 @@ public class TestBase  {
 	public void screenshotpass(String Testcasename, WebDriver driver) throws IOException
 	{
 		File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(src,new File("C:\\Users\\hp\\Desktop\\Sathya\\Sathya\\TechAssessmentMaven\\src\\main\\resources\\Screenshots\\"+Testcasename+"pass.png"));
+		FileUtils.copyFile(src,new File(".\\src\\main\\resources\\Screenshots\\"+Testcasename+"pass.png"));
 	}
 	public void screenshotfail(String Testcasename, WebDriver driver) throws IOException
 	{
 		File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(src,new File("C:\\Users\\hp\\Desktop\\Sathya\\Sathya\\TechAssessmentMaven\\src\\main\\resources\\Screenshots\\"+Testcasename+"fail.png"));
+		FileUtils.copyFile(src,new File(".\\src\\main\\resources\\Screenshots\\"+Testcasename+"fail.png"));
 	}
 }
 
